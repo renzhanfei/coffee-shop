@@ -1,0 +1,30 @@
+parameters:
+    msbaen.en:
+        guess-silhouette:
+            -
+                date: 20200725
+                question:
+                    options:
+                        -
+                            id: 1
+                            title: asdas
+                        -
+                            id: 2
+                            title: asdas
+                        -
+                            id: 3
+                            title: asdads
+                    anwsers: 1
+            -
+                date: 20200725
+                question:
+                    options:
+                        -   id: 4
+                            title: asdas
+                        -   id: 5
+                            title: asdas
+                        -   id: 6
+                            title: asdads
+                    anwsers: 4
+
+
