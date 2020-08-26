@@ -1,0 +1,12 @@
+{
+    "require": {
+        "oasis/slimapp": "2.5.1",
+        "oasis/doctrine-addon": "^2.0"
+    },
+    "name": "oasis/customize-api",
+    "autoload": {
+        "psr-4": {
+            "Oasis\\CustomizeApi\\": "src/"
+        }
+    }
+}

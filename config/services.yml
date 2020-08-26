@@ -1,0 +1,51 @@
+imports: {  }
+parameters:
+    default.namespace:
+        - Oasis\Mlib\
+        - Oasis\CustomizeApi\
+services:
+    app:
+        properties:
+            logging:
+                path: '%app.dir.log%'
+                level: debug
+            cli:
+                name: customize-api
+                version: '0.1'
+            http:
+                cache_dir: '%app.dir.cache%'
+                routing:
+                    path: '%app.dir.config%/routes.yml'
+                    namespaces:
+                        - Oasis\CustomizeApi\
+                        - Oasis\CustomizeApi\Controllers\
+                twig:
+                    template_dir: '%app.dir.template%'
+                    globals:
+                        app: '@app'
+                injected_args:
+                    - '@entity_manager'
+    memcached:
+        class: Memcached
+        calls:
+            -
+                - addServer
+                -
+                    - '%app.memcached.host%'
+                    - '%app.memcached.port%'
+    memcached_cache:
+        class: Doctrine\Common\Cache\MemcachedCache
+        calls:
+            -
+                - setMemcached
+                -
+                    - '@memcached'
+            -
+                - setNamespace
+                -
+                    - '%app.memcached.namespace%'
+    entity_manager:
+        class: Doctrine\ORM\EntityManager
+        factory:
+            - Oasis\CustomizeApi\Database\CustomizeApiDatabase
+            - getEntityManager
