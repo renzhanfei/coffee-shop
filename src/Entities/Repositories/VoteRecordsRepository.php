@@ -4,6 +4,6 @@ namespace Oasis\CustomizeApi\Entities\Repositories;
 
 use Doctrine\ORM\EntityRepository;
 
-class WinningRecordsRepository extends EntityRepository
+class VoteRecordsRepository extends EntityRepository
 {
 }

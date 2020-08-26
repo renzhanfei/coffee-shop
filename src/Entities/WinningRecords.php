@@ -8,10 +8,10 @@ use Oasis\Mlib\Doctrine\CascadeRemovableInterface;
 use Oasis\Mlib\Doctrine\CascadeRemoveTrait;
 
 /**
- * Class VoteRecords
+ * Class WinningRecords
  *
  * @package Oasis\CustomizeApi\Entities
- * @ORM\Entity(repositoryClass="Oasis\CustomizeApi\Entities\Repositories\VoteRecordsRepository")
+ * @ORM\Entity(repositoryClass="Oasis\CustomizeApi\Entities\Repositories\WinningRecordsRepository")
  * @ORM\Table(name="vote_records", indexes={
  *     @ORM\index(name="game_code", columns={"game_code"}),
  *     @ORM\index(name="language", columns={"language"})
@@ -20,7 +20,7 @@ use Oasis\Mlib\Doctrine\CascadeRemoveTrait;
  * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
  * @ORM\HasLifecycleCallbacks()
  */
-class VoteRecords implements JsonSerializable, CascadeRemovableInterface
+class WinningRecords implements JsonSerializable, CascadeRemovableInterface
 {
     use CascadeRemoveTrait;
     
@@ -34,18 +34,6 @@ class VoteRecords implements JsonSerializable, CascadeRemovableInterface
     
     /**
      * @var string
-     * @ORM\Column(name="game_code", type="string", length=32)
-     */
-    protected $gameCode;
-    
-    /**
-     * @var string
-     * @ORM\Column(type="string", length=32)
-     */
-    protected $language;
-    
-    /**
-     * @var string
      * @ORM\Column(type="string", length=128)
      */
     protected $uuid;
@@ -55,12 +43,6 @@ class VoteRecords implements JsonSerializable, CascadeRemovableInterface
      * @ORM\Column(type="integer", options={"unsigned":true})
      */
     protected $type;
-    
-    /**
-     * @var integer
-     * @ORM\Column(type="integer", options={"unsigned":true})
-     */
-    protected $counts;
     
     /**
      * @var string
